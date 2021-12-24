@@ -93,7 +93,7 @@ namespace cyber1_txt_Creator {
 
             // ReadMe stuff
             Console.WriteLine($"ReadMe bytes remaining: {200 - ReadMeData.Length}");
-            for (int i = 0; i < 200 - ReadMeData.Length; i++) {
+            for (int i = 0; i <= 200 - ReadMeData.Length; i++) {
                 ReadMeData += " ";
             }
             File.WriteAllBytes(ReadMeDir, ASCII.GetBytes(ReadMeData));
