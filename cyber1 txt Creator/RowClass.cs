@@ -3,10 +3,11 @@ using System.Linq;
 
 namespace cyber1_txt_Creator {
     public class RowClass {
+        private string _name;
         private string _type;
         private string _description;
 
-        public string Name { get; set; }
+        public string Name { get => _name; set { _name = NameTruncator(value); } }
         public string Type { get => _type; set { _type = TypeValidator(value.ToLower()) ? value.ToLower() : throw new Exception("Invalid string Input"); } }
         public string Level { get; set; }
         public DateTime StartDate { get; set; }
@@ -39,6 +40,11 @@ namespace cyber1_txt_Creator {
         private bool TypeValidator(string type) {
             string[] compareTo = new string[] { "summer school", "course", "school/college project", "work/placement project", "own project", "other" };
             return compareTo.Contains(type);
+        }
+        private string NameTruncator(string name) {
+            if (name.Length <= 30) return name;
+            else return name.Substring(0, 30);
+            
         }
 
 
